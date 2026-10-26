@@ -44,7 +44,7 @@ export interface CartItem {
   image: string;
 }
 
-const LOCAL_STORAGE_CART_KEY = "soz-cravings-cart-v1";
+const LOCAL_STORAGE_CART_KEY = "soz-cravings-cart-v2";
 
 const renderServiceIcon = (iconName: string) => {
   switch (iconName) {
@@ -159,34 +159,19 @@ export function App() {
   // Cart state with localStorage persistence
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     try {
+      // Clear out legacy prototype demo items from v1
+      localStorage.removeItem("soz-cravings-cart-v1");
       const saved = localStorage.getItem(LOCAL_STORAGE_CART_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed)) {
           return parsed;
         }
       }
     } catch (e) {
       // fallback
     }
-    return [
-      {
-        id: "odogwu-pack-initial",
-        name: "The Odogwu Pack",
-        subtitle: "Party Pack: 35 Puffs, 8 Samosas, 8 Spring Rolls & 4 Peppered Turkey Cuts",
-        price: 35000,
-        quantity: 1,
-        image: "/images/box-of-chops.jpg",
-      },
-      {
-        id: "fisherman-2l-initial",
-        name: "1.5L Gourmet Fisherman Soup",
-        subtitle: "Premium Rivers Style with Jumbo Prawns, Snail, Crab & Periwinkle",
-        price: 28000,
-        quantity: 1,
-        image: "/images/single-soup-bowl.jpg",
-      },
-    ];
+    return [];
   });
 
   useEffect(() => {
