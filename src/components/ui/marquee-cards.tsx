@@ -63,6 +63,8 @@ export const MarqueeCards: React.FC<MarqueeCardsProps> = ({
                 <img
                   src={card.image}
                   alt={card.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
 

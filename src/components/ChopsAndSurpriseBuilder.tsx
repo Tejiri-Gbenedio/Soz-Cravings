@@ -186,7 +186,7 @@ export const ChopsAndSurpriseBuilder: React.FC<ChopsAndSurpriseBuilderProps> = (
       name: `Custom Small Chops Platter (${totalCustomPiecesCount} pcs)`,
       subtitle: summaryParts.slice(0, 3).join(", ") + (summaryParts.length > 3 ? "..." : ""),
       price: customPiecesTotalPrice,
-      image: "/images/box-of-chops.jpg",
+      image: "/images/box-of-chops.webp",
     });
   };
 

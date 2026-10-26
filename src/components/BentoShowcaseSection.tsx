@@ -46,18 +46,18 @@ const CATEGORIES: CategoryData[] = [
     ctaText: "Configure Your Liter Bowl →",
     images: {
       hero: {
-        url: "/images/single-soup-bowl.jpg",
+        url: "/images/single-soup-bowl.webp",
         caption: "Gourmet Rivers Traditional Soup Bowl",
         tag: "Rivers Heritage Recipe",
         price: "From ₦22,000",
       },
       stackedTop: {
-        url: "/images/rice-combo-plate.jpg",
+        url: "/images/rice-combo-plate.webp",
         caption: "Special Rice & Soup Plates",
         price: "₦7,000 – ₦12,000",
       },
       stackedBottom: {
-        url: "/images/box-of-fries.jpg",
+        url: "/images/box-of-fries.webp",
         caption: "Triple-Fry Yam, Potato & Dodo Box",
         price: "From ₦15,000",
       },
@@ -74,18 +74,18 @@ const CATEGORIES: CategoryData[] = [
     ctaText: "Order Box of Chops →",
     images: {
       hero: {
-        url: "/images/box-of-chops.jpg",
+        url: "/images/box-of-chops.webp",
         caption: "The Odogwu Deluxe Chops Box",
         tag: "Pitakwa Party Special",
         price: "₦35,000",
       },
       stackedTop: {
-        url: "/images/box-of-fries.jpg",
+        url: "/images/box-of-fries.webp",
         caption: "Box of Fries with Snails & Prawns",
         price: "₦35,000",
       },
       stackedBottom: {
-        url: "/images/rice-combo-plate.jpg",
+        url: "/images/rice-combo-plate.webp",
         caption: "Rice Combo with Moi Moi & Chicken",
         price: "₦12,000",
       },
@@ -102,18 +102,18 @@ const CATEGORIES: CategoryData[] = [
     ctaText: "Explore Box of Fries & Gifts →",
     images: {
       hero: {
-        url: "/images/box-of-fries.jpg",
+        url: "/images/box-of-fries.webp",
         caption: "Official Box of Fries Loaded Base",
         tag: "Black & Gold Luxury Box",
         price: "₦15,000 – ₦35,000",
       },
       stackedTop: {
-        url: "/images/box-of-chops.jpg",
+        url: "/images/box-of-chops.webp",
         caption: "Box of Chops Regular & Big Boy",
         price: "From ₦5,500",
       },
       stackedBottom: {
-        url: "/images/soz-crest-dark.jpg",
+        url: "/images/soz-crest-dark.webp",
         caption: "Official Chef So'z Royal Emblem",
         price: "Chef Sonia Verified",
       },
@@ -130,18 +130,18 @@ const CATEGORIES: CategoryData[] = [
     ctaText: "Book Private Chef Sonia →",
     images: {
       hero: {
-        url: "/images/chef-sonia-portrait.jpg",
+        url: "/images/chef-sonia-portrait.webp",
         caption: "Chef Sonia (Chef So'z) In-Home Dining",
         tag: "Naija to Gourmet",
         price: "From ₦50,000",
       },
       stackedTop: {
-        url: "/images/rice-combo-plate.jpg",
+        url: "/images/rice-combo-plate.webp",
         caption: "Dual-Rice Executive Event Feast",
         price: "Option 1 & 2 Plates",
       },
       stackedBottom: {
-        url: "/images/single-soup-bowl.jpg",
+        url: "/images/single-soup-bowl.webp",
         caption: "Hot Nigerian Artisan Soups",
         price: "10 Classic Recipes",
       },

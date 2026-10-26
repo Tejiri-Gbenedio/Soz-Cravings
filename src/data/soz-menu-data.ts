@@ -131,7 +131,7 @@ export interface PrivateChefTier {
 export const SOZ_BRAND_IDENTITY = {
   brandName: "So'z Cravings",
   chefName: "Chef Sonia (Chef So'z)",
-  brandLogo: "/images/soz-crest-dark.jpg",
+  brandLogo: "/images/soz-crest-dark.webp",
   primaryTagline: "GOOD FOOD • GREAT VIBES • MEMORABLE MOMENTS",
   secondaryTagline: "CRAVE IT. WE DELIVER. • Small Chops, Big Vibes! • Fries. Flavor. Satisfaction.",
   secondaryTaglines: [
@@ -229,7 +229,7 @@ export const BOX_OF_FRIES_MENU: BoxOfFriesItem[] = [
       "Signature Pepper Dip & Garlic Mayo",
     ],
     description: "Hearty box of loaded yam, sweet plantain, and potatoes topped with succulent peppered beef kebabs.",
-    image: "/images/box-of-fries.jpg",
+    image: "/images/box-of-fries.webp",
     badge: "VALUE FAVORITE",
   },
   {
@@ -247,7 +247,7 @@ export const BOX_OF_FRIES_MENU: BoxOfFriesItem[] = [
       "Signature Pepper Dip & Garlic Mayo",
     ],
     description: "Triple-fry base loaded with juicy, fiery peppered chicken cuts in Chef So'z signature black & gold box.",
-    image: "/images/box-of-fries.jpg",
+    image: "/images/box-of-fries.webp",
     badge: "POPULAR CRAVING",
   },
   {
@@ -265,7 +265,7 @@ export const BOX_OF_FRIES_MENU: BoxOfFriesItem[] = [
       "Signature Pepper Dip & Garlic Mayo",
     ],
     description: "Premium party box packed with loaded fries and meaty, deeply roasted peppered turkey chunks.",
-    image: "/images/box-of-fries.jpg",
+    image: "/images/box-of-fries.webp",
     badge: "CHEF RECOMMENDATION",
   },
   {
@@ -284,7 +284,7 @@ export const BOX_OF_FRIES_MENU: BoxOfFriesItem[] = [
       "Chef So'z Gourmet Seafood Dressing",
     ],
     description: "The ultimate gourmet indulgence: triple-fry base crowned with giant peppered snails and jumbo coastal prawns.",
-    image: "/images/box-of-fries.jpg",
+    image: "/images/box-of-fries.webp",
     badge: "LUXURY SEAFOOD LOADED",
   },
 ];
@@ -304,7 +304,7 @@ export const BOX_OF_CHOPS_PACKAGES: BoxOfChopsPackage[] = [
       "Chef So'z Pepper Sauce Dip",
     ],
     availabilityNotice: "Available Every Tuesday, Thursday & Saturday",
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
     badge: "QUICK SNACK",
   },
   {
@@ -322,7 +322,7 @@ export const BOX_OF_CHOPS_PACKAGES: BoxOfChopsPackage[] = [
     requiresProteinChoice: true,
     proteinOptions: ["4 Peppered Chicken", "8 Peppered Beef"],
     availabilityNotice: "Available Every Tuesday, Thursday & Saturday",
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
     badge: "CHOICE OF CHICKEN OR BEEF",
   },
   {
@@ -338,7 +338,7 @@ export const BOX_OF_CHOPS_PACKAGES: BoxOfChopsPackage[] = [
       "Signature Pepper Sauce Dip",
     ],
     availabilityNotice: "Available Every Tuesday, Thursday & Saturday",
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
     badge: "MOST POPULAR • PARTY PLATTER",
   },
 ];
@@ -359,7 +359,7 @@ export const SMALL_CHOPS_EVENT_MENU: SmallChopsEventPack[] = [
       "1 Peppered Beef Cut",
       "Chef So'z Pepper Sauce Dip",
     ],
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
   {
     id: "small-chops-option-2",
@@ -376,7 +376,7 @@ export const SMALL_CHOPS_EVENT_MENU: SmallChopsEventPack[] = [
       "Chef So'z Pepper Sauce Dip",
     ],
     badge: "POPULAR EVENT CHOICE",
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
   {
     id: "small-chops-option-3",
@@ -393,7 +393,7 @@ export const SMALL_CHOPS_EVENT_MENU: SmallChopsEventPack[] = [
       "Chef So'z Pepper Sauce Dip",
     ],
     badge: "VIP SEAFOOD PACK",
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
 ];
 
@@ -409,7 +409,7 @@ export const RICE_AND_SOUP_PLATES: RiceAndSoupCombo[] = [
     description: "Generous dual-rice feast with smokey Nigerian party jollof and seasoned fried rice, crisp garden salad, and your selected protein.",
     includedItems: ["Two Types of Rice (Jollof + Fried)", "Fresh Garden Salad"],
     proteinChoices: ["Chicken", "Pepper Chicken", "Goat Meat", "Fish"],
-    image: "/images/rice-combo-plate.jpg",
+    image: "/images/rice-combo-plate.webp",
   },
   {
     id: "rice-combo-option-2",
@@ -421,7 +421,7 @@ export const RICE_AND_SOUP_PLATES: RiceAndSoupCombo[] = [
     description: "The complete royal spread: Smokey party jollof & fried rice, rich steamed leaf-wrapped Moi Moi, crisp salad, and your selected protein.",
     includedItems: ["Two Types of Rice (Jollof + Fried)", "Fresh Garden Salad", "Rich Moi Moi"],
     proteinChoices: ["Chicken", "Pepper Chicken", "Goat Meat", "Fish"],
-    image: "/images/rice-combo-plate.jpg",
+    image: "/images/rice-combo-plate.webp",
   },
   {
     id: "single-soup-bowl-7k",
@@ -446,7 +446,7 @@ export const RICE_AND_SOUP_PLATES: RiceAndSoupCombo[] = [
       "Rivers Okazi Soup",
     ],
     exclusionNote: "No Fisherman soup and No Native soup (Fisherman & Native soup are available exclusively in Liter Bowls).",
-    image: "/images/single-soup-bowl.jpg",
+    image: "/images/single-soup-bowl.webp",
   },
 ];
 
@@ -457,7 +457,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Gourmet Fisherman Soup (Premium)",
     category: "Soup",
     description: "Chef So'z specialty Rivers Fisherman Soup loaded with fresh seafood, jumbo prawns, snails, crab, periwinkle, and rich palm oil base.",
-    image: "/images/single-soup-bowl.jpg",
+    image: "/images/single-soup-bowl.webp",
     leadTime: "Requires 24hrs Pre-Order",
     isPremiumSeafood: true,
     sizes: [
@@ -478,7 +478,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Rivers Special Native Soup (Premium)",
     category: "Soup",
     description: "Authentic Niger Delta Native Soup bursting with fresh seafood, smoked fish, periwinkle, and traditional coastal spices.",
-    image: "/images/single-soup-bowl.jpg",
+    image: "/images/single-soup-bowl.webp",
     leadTime: "Requires 24hrs Pre-Order",
     isPremiumSeafood: true,
     sizes: [
@@ -498,7 +498,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Classic Nigerian Soups in Liters",
     category: "Soup",
     description: "Hearty family & event liter bowls of your choice (Afang, Egusi, Banga, Okazi, Oha, Edikang Ikong, Efo Riro, White Soup, Okro, or Ogbono).",
-    image: "/images/single-soup-bowl.jpg",
+    image: "/images/single-soup-bowl.webp",
     leadTime: "Requires 24hrs Pre-Order",
     sizes: [
       { sizeLabel: "1.5L", price: 22000, servingsEstimate: "5–7 servings" },
@@ -517,7 +517,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Rich Seafood Okro Soup",
     category: "Soup",
     description: "Crunchy sliced okro simmered in aromatic seafood stock with fresh crabs, prawns, snails, fish, and ogbono base for rich draw.",
-    image: "/images/single-soup-bowl.jpg",
+    image: "/images/single-soup-bowl.webp",
     leadTime: "Requires 24hrs Pre-Order",
     isPremiumSeafood: true,
     sizes: [
@@ -536,7 +536,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Rich Homemade Chicken Stew",
     category: "Stew",
     description: "Slow-cooked, velvety red tomato & tatashe stew loaded with seasoned, succulent fried or grilled chicken cuts.",
-    image: "/images/rice-combo-plate.jpg",
+    image: "/images/rice-combo-plate.webp",
     leadTime: "Available for same-day & 24hr orders",
     sizes: [
       { sizeLabel: "1.5L", price: 20000, servingsEstimate: "4–6 servings" },
@@ -554,7 +554,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Spiced Goat Meat Stew / Ayamase",
     category: "Stew",
     description: "Traditional bleached palm oil green pepper sauce (Ofada Stew/Ayamase) or deep red goat meat stew cooked with aromatic locust beans.",
-    image: "/images/single-soup-bowl.jpg",
+    image: "/images/single-soup-bowl.webp",
     leadTime: "Requires 24hrs Pre-Order",
     sizes: [
       { sizeLabel: "1.5L", price: 24000, servingsEstimate: "4–6 servings" },
@@ -572,7 +572,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Smokey Nigerian Party Jollof",
     category: "Rice & Pasta",
     description: "The pride of Port Harcourt: Authentic firewood-smokey jollof rice made with rich stock, aromatic spices, and natural tomato puree.",
-    image: "/images/rice-combo-plate.jpg",
+    image: "/images/rice-combo-plate.webp",
     leadTime: "Same day & Pre-order available",
     sizes: [
       { sizeLabel: "1.5L", price: 16000, servingsEstimate: "4–5 servings" },
@@ -590,7 +590,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Gourmet Special Fried Rice",
     category: "Rice & Pasta",
     description: "Fragrant rice tossed in sweet corn, carrots, green beans, liver bits, and seasoned with Chef So'z secret herbal stock.",
-    image: "/images/rice-combo-plate.jpg",
+    image: "/images/rice-combo-plate.webp",
     leadTime: "Same day & Pre-order available",
     sizes: [
       { sizeLabel: "1.5L", price: 18000, servingsEstimate: "4–5 servings" },
@@ -608,7 +608,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     name: "Creamy Native Seafood Pasta",
     category: "Rice & Pasta",
     description: "Silky pasta ribbons infused with coastal spices, prawns, calamari rings, fish flakes, and subtle scotch bonnet warmth.",
-    image: "/images/box-of-fries.jpg",
+    image: "/images/box-of-fries.webp",
     leadTime: "Requires 24hrs Pre-Order",
     isPremiumSeafood: true,
     sizes: [
@@ -632,7 +632,7 @@ export const CUSTOM_SMALL_CHOPS_ITEMS: SmallChopsUnit[] = [
     unitPrice: 150,
     minQty: 10,
     step: 5,
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
   {
     id: "samosa",
@@ -641,7 +641,7 @@ export const CUSTOM_SMALL_CHOPS_ITEMS: SmallChopsUnit[] = [
     unitPrice: 400,
     minQty: 5,
     step: 5,
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
   {
     id: "spring-roll",
@@ -650,7 +650,7 @@ export const CUSTOM_SMALL_CHOPS_ITEMS: SmallChopsUnit[] = [
     unitPrice: 400,
     minQty: 5,
     step: 5,
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
   {
     id: "peppered-chicken",
@@ -659,7 +659,7 @@ export const CUSTOM_SMALL_CHOPS_ITEMS: SmallChopsUnit[] = [
     unitPrice: 1200,
     minQty: 2,
     step: 1,
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
   {
     id: "peppered-turkey",
@@ -668,7 +668,7 @@ export const CUSTOM_SMALL_CHOPS_ITEMS: SmallChopsUnit[] = [
     unitPrice: 2000,
     minQty: 2,
     step: 1,
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
   {
     id: "corn-dog",
@@ -677,7 +677,7 @@ export const CUSTOM_SMALL_CHOPS_ITEMS: SmallChopsUnit[] = [
     unitPrice: 1500,
     minQty: 2,
     step: 1,
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
   },
 ];
 
@@ -760,7 +760,7 @@ export const SURPRISE_BOX_PACKAGES: SurpriseBoxPackage[] = [
     tierName: "Silver Cravings Package",
     tagline: "Thoughtful & Delicious Birthday or Anniversary Surprise",
     basePrice: 35000,
-    image: "/images/box-of-chops.jpg",
+    image: "/images/box-of-chops.webp",
     includes: [
       "Mini Chops Box (20 Puffs, 4 Samosas, 4 Spring Rolls)",
       "2 Peppered Chicken Cuts",
@@ -775,7 +775,7 @@ export const SURPRISE_BOX_PACKAGES: SurpriseBoxPackage[] = [
     tierName: "Gold Majesty Package",
     tagline: "Our Best-Selling Royal Treat for Celebrations",
     basePrice: 65000,
-    image: "/images/box-of-fries.jpg",
+    image: "/images/box-of-fries.webp",
     includes: [
       "The Odogwu Small Chops Box (35 Puffs, 8 Samosas, 8 Spring Rolls, 4 Turkey Cuts)",
       "1 Bottle of Premium Non-Alcoholic Wine / Sparkling Cider",
@@ -790,7 +790,7 @@ export const SURPRISE_BOX_PACKAGES: SurpriseBoxPackage[] = [
     tierName: "Diamond Empress Package",
     tagline: "The Ultimate VIP In-Home Surprise Experience",
     basePrice: 115000,
-    image: "/images/rice-combo-plate.jpg",
+    image: "/images/rice-combo-plate.webp",
     includes: [
       "Gourmet Food Tray (Smokey Jollof + Fried Rice + Peppered Turkey + Small Chops)",
       "Premium Imported Champagne / Sparkling Wine",
@@ -826,7 +826,7 @@ export const PH_DELIVERY_ZONES: DeliveryZone[] = [
 export const SOZ_SIGNATURE_OFFERS = [
   {
     id: "sig-box-of-chops",
-    imageSrc: "/images/box-of-chops.jpg",
+    imageSrc: "/images/box-of-chops.webp",
     imageAlt: "Official Box of Chops",
     tag: "TUE • THU • SAT SPECIAL",
     title: "Box of Chops (Odogwu Pack)",
@@ -839,7 +839,7 @@ export const SOZ_SIGNATURE_OFFERS = [
   },
   {
     id: "sig-box-of-fries",
-    imageSrc: "/images/box-of-fries.jpg",
+    imageSrc: "/images/box-of-fries.webp",
     imageAlt: "Box of Fries with Snails & Prawns",
     tag: "NEW FLYER RELEASE",
     title: "Box of Fries with Snails & Prawns",
@@ -852,7 +852,7 @@ export const SOZ_SIGNATURE_OFFERS = [
   },
   {
     id: "sig-rice-combo-option-2",
-    imageSrc: "/images/rice-combo-plate.jpg",
+    imageSrc: "/images/rice-combo-plate.webp",
     imageAlt: "Two Types of Rice with Moi Moi",
     tag: "EVERYDAY HIT",
     title: "Rice & Soup Option 2 (with Moi Moi)",
@@ -865,7 +865,7 @@ export const SOZ_SIGNATURE_OFFERS = [
   },
   {
     id: "sig-single-soup-bowl",
-    imageSrc: "/images/single-soup-bowl.jpg",
+    imageSrc: "/images/single-soup-bowl.webp",
     imageAlt: "Loaded Single Soup Bowl",
     tag: "FRESH HOT BOWL",
     title: "Single Soup Bowl (Any Classic Soup)",
@@ -878,7 +878,7 @@ export const SOZ_SIGNATURE_OFFERS = [
   },
   {
     id: "sig-private-chef",
-    imageSrc: "/images/chef-sonia-portrait.jpg",
+    imageSrc: "/images/chef-sonia-portrait.webp",
     imageAlt: "Chef Sonia Private Dining",
     tag: "NAIJA TO GOURMET",
     title: "Private Chef In-Home Dining",

@@ -402,7 +402,7 @@ export const EventCateringSection: React.FC = () => {
             <div className="p-6 sm:p-8 rounded-3xl bg-[#160E1D] border border-[#D4AF37]/30 royal-card-glow flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
                 <img
-                  src="/images/chef-sonia-portrait.jpg"
+                  src="/images/chef-sonia-portrait.webp"
                   alt="Chef Sonia (Chef So'z)"
                   className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-[#D4AF37] shadow-xl shrink-0"
                 />

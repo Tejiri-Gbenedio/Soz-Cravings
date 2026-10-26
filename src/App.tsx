@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import {
   ShoppingBag,
   Sparkles,
@@ -27,13 +27,24 @@ import {
   SOZ_FIVE_SERVICES,
   PH_DELIVERY_ZONES,
 } from "@/data/soz-menu-data";
-import { RiceAndSoupPlatesSection } from "@/components/RiceAndSoupPlatesSection";
-import { LiterBowlConfigurator } from "@/components/LiterBowlConfigurator";
-import { ChopsAndSurpriseBuilder } from "@/components/ChopsAndSurpriseBuilder";
 import { ChefStoryAndHoursSection } from "@/components/ChefStoryAndHoursSection";
-import { EventCateringSection } from "@/components/EventCateringSection";
 import { TrustAndReviewsSection } from "@/components/TrustAndReviewsSection";
 import { Footer } from "@/components/Footer";
+
+// Lazy-loaded subpages for blazing fast mobile initial load
+const RiceAndSoupPlatesSection = lazy(() => import("@/components/RiceAndSoupPlatesSection"));
+const LiterBowlConfigurator = lazy(() => import("@/components/LiterBowlConfigurator"));
+const ChopsAndSurpriseBuilder = lazy(() => import("@/components/ChopsAndSurpriseBuilder"));
+const EventCateringSection = lazy(() => import("@/components/EventCateringSection"));
+
+const SubpageLoader: React.FC = () => (
+  <div className="py-24 flex flex-col items-center justify-center text-center space-y-3">
+    <div className="w-8 h-8 rounded-full border-2 border-[#D4AF37]/30 border-t-[#E86F2C] animate-spin" />
+    <span className="text-[11px] font-mono uppercase tracking-widest text-[#D4AF37]">
+      Loading Kitchen Studio...
+    </span>
+  </div>
+);
 
 export interface CartItem {
   id: string;
@@ -189,56 +200,56 @@ export function App() {
       title: "Gourmet Fisherman Soup",
       subtitle: "Jumbo Prawns, Crab & Sea Snails",
       priceTag: "From ₦28,000",
-      image: "/images/single-soup-bowl.jpg",
+      image: "/images/single-soup-bowl.webp",
     },
     {
       id: "marquee-2",
       title: "The Odogwu Small Chops Box",
       subtitle: "35 Puffs, Samosas, Rolls & Turkey",
       priceTag: "₦35,000",
-      image: "/images/box-of-chops.jpg",
+      image: "/images/box-of-chops.webp",
     },
     {
       id: "marquee-3",
       title: "Chef So'z Box of Fries Special",
       subtitle: "15 Yam, 15 Potato, 15 Plantain & Turkey",
       priceTag: "₦25,000",
-      image: "/images/box-of-fries.jpg",
+      image: "/images/box-of-fries.webp",
     },
     {
       id: "marquee-4",
       title: "Rice & Moi Moi Feast Plate",
       subtitle: "Jollof, Fried Rice, Salad & Protein",
       priceTag: "₦12,000",
-      image: "/images/rice-combo-plate.jpg",
+      image: "/images/rice-combo-plate.webp",
     },
     {
       id: "marquee-5",
       title: "Loaded Classic Soup Bowl",
       subtitle: "Egusi, Afang, Banga or Okazi",
       priceTag: "₦7,000",
-      image: "/images/single-soup-bowl.jpg",
+      image: "/images/single-soup-bowl.webp",
     },
     {
       id: "marquee-6",
       title: "Regular Box of Chops",
       subtitle: "15 Puffs, 4 Samosas, 4 Rolls & Pepper Chicken",
       priceTag: "₦5,500",
-      image: "/images/box-of-chops.jpg",
+      image: "/images/box-of-chops.webp",
     },
     {
       id: "marquee-7",
       title: "Box of Fries (Snails & Prawns)",
       subtitle: "Yam, Potato, Plantain with Sea Snails & Prawns",
       priceTag: "₦35,000",
-      image: "/images/box-of-fries.jpg",
+      image: "/images/box-of-fries.webp",
     },
     {
       id: "marquee-8",
       title: "Dual-Rice Combo Plate",
       subtitle: "Jollof, Fried Rice, Salad & Choice of Protein",
       priceTag: "₦10,000",
-      image: "/images/rice-combo-plate.jpg",
+      image: "/images/rice-combo-plate.webp",
     },
   ];
 
@@ -364,7 +375,7 @@ export function App() {
           >
             <div className="w-11 h-11 rounded-xl overflow-hidden border border-[#D4AF37]/50 shadow-lg group-hover:border-[#F3C663] group-hover:scale-105 transition-all duration-300 bg-[#160E1D] flex items-center justify-center shrink-0">
               <img
-                src="/images/soz-crest-dark.jpg"
+                src="/images/soz-crest-dark.webp"
                 alt="So'z Cravings Official 3D Crest"
                 className="w-full h-full object-cover"
               />
@@ -770,7 +781,9 @@ export function App() {
             onBackToHome={() => navigateTo("home")}
           />
 
-          <RiceAndSoupPlatesSection onAddToCart={handleAddToCart} />
+          <Suspense fallback={<SubpageLoader />}>
+            <RiceAndSoupPlatesSection onAddToCart={handleAddToCart} />
+          </Suspense>
         </main>
       )}
 
@@ -787,7 +800,9 @@ export function App() {
             onBackToHome={() => navigateTo("home")}
           />
 
-          <ChopsAndSurpriseBuilder onAddToCart={handleAddToCart} />
+          <Suspense fallback={<SubpageLoader />}>
+            <ChopsAndSurpriseBuilder onAddToCart={handleAddToCart} />
+          </Suspense>
         </main>
       )}
 
@@ -804,10 +819,12 @@ export function App() {
             onBackToHome={() => navigateTo("home")}
           />
 
-          <LiterBowlConfigurator
-            initialDishId={preselectedDish}
-            onAddConfiguredBowl={handleAddToCart}
-          />
+          <Suspense fallback={<SubpageLoader />}>
+            <LiterBowlConfigurator
+              initialDishId={preselectedDish}
+              onAddConfiguredBowl={handleAddToCart}
+            />
+          </Suspense>
         </main>
       )}
 
@@ -824,7 +841,9 @@ export function App() {
             onBackToHome={() => navigateTo("home")}
           />
 
-          <EventCateringSection />
+          <Suspense fallback={<SubpageLoader />}>
+            <EventCateringSection />
+          </Suspense>
         </main>
       )}
 
