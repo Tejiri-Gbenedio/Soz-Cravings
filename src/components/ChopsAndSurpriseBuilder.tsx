@@ -229,7 +229,7 @@ export const ChopsAndSurpriseBuilder: React.FC<ChopsAndSurpriseBuilderProps> = (
       deliveryDateTime || "ASAP"
     }%0A• Delivery Zone: ${selectedZone}%0A• Custom Note: "${customNote || "Best Wishes!"}"%0A%0APlease confirm availability & account details!`;
 
-    window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${message}`, "_blank");
+    window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   return (

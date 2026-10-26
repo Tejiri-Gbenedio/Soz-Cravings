@@ -341,23 +341,41 @@ export function App() {
 
     const itemsList = cartItems
       .map(
-        (item) =>
-          `• ${item.quantity}x *${item.name}*%0A  _${item.subtitle || ""}_ — ₦${(
+        (item, index) =>
+          `${index + 1}. ${item.quantity}x *${item.name}*\n   _${item.subtitle || ""}_ — ₦${(
             item.price * item.quantity
           ).toLocaleString()}`
       )
-      .join("%0A%0A");
+      .join("\n\n");
 
     const zoneName = selectedDeliveryZone?.areaName || "Eneka / Port Harcourt";
     const feeText = selectedDeliveryZone?.fee
       ? `₦${selectedDeliveryZone.fee.toLocaleString()}`
       : "Free / Calculated on confirmation";
 
-    const text = `*OFFICIAL SO'Z CRAVINGS ORDER INVOICE*%0A*Order Ref:* ${orderRef}%0A*Brand Tagline:* ${SOZ_BRAND_IDENTITY.primaryTagline}%0A*Kitchen Studio:* ${SOZ_BRAND_IDENTITY.kitchenBaseLocation}%0A%0A*CUSTOMER DETAILS:*%0A• Name: ${
-      customerName || "Customer"
-    }%0A• Phone: ${customerPhone || "Provided on WhatsApp"}%0A• Delivery Zone: ${zoneName}%0A• Scheduled Window: ${deliveryWindow}%0A%0A*ITEMIZED SELECTIONS:*%0A${itemsList}%0A%0A*PAYMENT BREAKDOWN:*%0A• Subtotal: ₦${cartSubtotal.toLocaleString()}%0A• Delivery Fee: ${feeText}%0A• *GRAND TOTAL: ₦${finalTotal.toLocaleString()}*%0A%0APlease confirm kitchen availability and provide your account transfer details!`;
+    const text = `*OFFICIAL SO'Z CRAVINGS ORDER INVOICE*
+*Order Ref:* ${orderRef}
+*Brand Tagline:* ${SOZ_BRAND_IDENTITY.primaryTagline}
+*Kitchen Studio:* ${SOZ_BRAND_IDENTITY.kitchenBaseLocation}
 
-    window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${text}`, "_blank");
+*CUSTOMER DETAILS:*
+• Name: ${customerName.trim() || "Customer"}
+• Phone: ${customerPhone.trim() || "Provided on WhatsApp"}
+• Delivery Zone: ${zoneName}
+• Scheduled Window: ${deliveryWindow.trim() || "As soon as ready / 24hrs"}
+
+*ITEMIZED SELECTIONS (${totalCartCount} ${totalCartCount === 1 ? "item" : "items"} across ${cartItems.length} ${cartItems.length === 1 ? "dish" : "dishes"}):*
+${itemsList}
+
+*PAYMENT BREAKDOWN:*
+• Items Subtotal: ₦${cartSubtotal.toLocaleString()}
+• Delivery Fee: ${feeText}
+• *GRAND TOTAL: ₦${finalTotal.toLocaleString()}*
+
+Please confirm kitchen availability and provide your account transfer details!`;
+
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${encodedText}`, "_blank");
   };
 
   return (

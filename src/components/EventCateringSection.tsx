@@ -119,7 +119,7 @@ export const EventCateringSection: React.FC = () => {
       specialNotes ? `• Special Requests: "${specialNotes}"%0A` : ""
     }%0APlease let me know your availability for this date so we can finalize details!`;
 
-    window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${text}`, "_blank");
+    window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   // Private Chef Calculations
@@ -140,7 +140,7 @@ export const EventCateringSection: React.FC = () => {
       chefDietaryNotes ? `• Dietary / Menu Preferences: "${chefDietaryNotes}"%0A` : ""
     }%0A*TERMS ACKNOWLEDGED:*%0A- 50% initial deposit to confirm, balance upon completion.%0A- Max 7 hours per service day.%0A- Ingredients are not included.%0A%0APlease confirm your availability and provide bank transfer details!`;
 
-    window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${text}`, "_blank");
+    window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
