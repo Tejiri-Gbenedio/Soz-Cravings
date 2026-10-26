@@ -342,7 +342,7 @@ export function App() {
     const itemsList = cartItems
       .map(
         (item, index) =>
-          `${index + 1}. ${item.quantity}x *${item.name}*\n   _${item.subtitle || ""}_ — ₦${(
+          `${index + 1}. ${item.quantity}x *${item.name}*\n   _${item.subtitle || ""}_\n   Item Total: ₦${(
             item.price * item.quantity
           ).toLocaleString()}`
       )
@@ -354,23 +354,30 @@ export function App() {
       : "Free / Calculated on confirmation";
 
     const text = `*OFFICIAL SO'Z CRAVINGS ORDER INVOICE*
-*Order Ref:* ${orderRef}
-*Brand Tagline:* ${SOZ_BRAND_IDENTITY.primaryTagline}
-*Kitchen Studio:* ${SOZ_BRAND_IDENTITY.kitchenBaseLocation}
+━━━━━━━━━━━━━━━━━━━━
+🧾 *Order Ref:* ${orderRef}
+💰 *SUM TOTAL: ₦${finalTotal.toLocaleString()}*
+📦 *Total Quantity:* ${totalCartCount} ${totalCartCount === 1 ? "item" : "items"} (${cartItems.length} ${cartItems.length === 1 ? "dish" : "dishes"})
+━━━━━━━━━━━━━━━━━━━━
 
-*CUSTOMER DETAILS:*
+👤 *CUSTOMER DETAILS:*
 • Name: ${customerName.trim() || "Customer"}
 • Phone: ${customerPhone.trim() || "Provided on WhatsApp"}
 • Delivery Zone: ${zoneName}
 • Scheduled Window: ${deliveryWindow.trim() || "As soon as ready / 24hrs"}
 
-*ITEMIZED SELECTIONS (${totalCartCount} ${totalCartCount === 1 ? "item" : "items"} across ${cartItems.length} ${cartItems.length === 1 ? "dish" : "dishes"}):*
+📋 *ITEMIZED ORDER:*
 ${itemsList}
 
-*PAYMENT BREAKDOWN:*
+━━━━━━━━━━━━━━━━━━━━
+💳 *PAYMENT BREAKDOWN:*
 • Items Subtotal: ₦${cartSubtotal.toLocaleString()}
 • Delivery Fee: ${feeText}
-• *GRAND TOTAL: ₦${finalTotal.toLocaleString()}*
+👉 *SUM TOTAL: ₦${finalTotal.toLocaleString()}*
+━━━━━━━━━━━━━━━━━━━━
+
+Kitchen: ${SOZ_BRAND_IDENTITY.kitchenBaseLocation}
+Brand: ${SOZ_BRAND_IDENTITY.primaryTagline}
 
 Please confirm kitchen availability and provide your account transfer details!`;
 
