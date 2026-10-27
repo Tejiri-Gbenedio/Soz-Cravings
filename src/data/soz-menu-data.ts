@@ -817,12 +817,12 @@ export const SURPRISE_ADDONS: SurpriseAddon[] = [
 ];
 
 export const PH_DELIVERY_ZONES: DeliveryZone[] = [
-  { id: "eneka", areaName: "Eneka / Rukpokwu / Eliozu (Kitchen Home Zone)", fee: 1500, estimatedWindow: "20–35 mins" },
-  { id: "gra", areaName: "GRA Phase 1, 2 & 3 / Old GRA", fee: 2500, estimatedWindow: "35–50 mins" },
-  { id: "peter-odili", areaName: "Peter Odili / Trans-Amadi / Woji / Elelenwo", fee: 2500, estimatedWindow: "30–45 mins" },
-  { id: "rumuola", areaName: "Rumuola / Rumuokwuta / Artillery / Rumuomasi", fee: 2200, estimatedWindow: "25–45 mins" },
-  { id: "ada-george", areaName: "Ada George / Mgbuoba / Location", fee: 2800, estimatedWindow: "35–55 mins" },
-  { id: "choba", areaName: "Choba / Uniport / Alakahia", fee: 3000, estimatedWindow: "40–60 mins" },
+  { id: "eneka", areaName: "Eneka / Rukpokwu / Eliozu (Kitchen Home Zone)", fee: 3000, estimatedWindow: "20–35 mins" },
+  { id: "gra", areaName: "GRA Phase 1, 2 & 3 / Old GRA", fee: 4000, estimatedWindow: "35–50 mins" },
+  { id: "peter-odili", areaName: "Peter Odili / Trans-Amadi / Woji / Elelenwo", fee: 5000, estimatedWindow: "30–45 mins" },
+  { id: "rumuola", areaName: "Rumuola / Rumuokwuta / Artillery / Rumuomasi", fee: 4000, estimatedWindow: "25–45 mins" },
+  { id: "ada-george", areaName: "Ada George / Mgbuoba / Location", fee: 5000, estimatedWindow: "35–55 mins" },
+  { id: "choba", areaName: "Choba / Uniport / Alakahia", fee: 5000, estimatedWindow: "40–60 mins" },
   { id: "pickup-eneka", areaName: "Self-Pickup (Eneka Kitchen, Port Harcourt)", fee: 0, estimatedWindow: "Ready at scheduled time" },
 ];
 
