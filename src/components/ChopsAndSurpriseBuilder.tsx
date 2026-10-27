@@ -80,10 +80,7 @@ export const ChopsAndSurpriseBuilder: React.FC<ChopsAndSurpriseBuilderProps> = (
 
   // Tab 4: Royal Surprise Package
   const [selectedTierId, setSelectedTierId] = useState<string>("surprise-gold");
-  const [selectedAddonIds, setSelectedAddonIds] = useState<string[]>([
-    "addon-wine",
-    "addon-card",
-  ]);
+  const [addonQuantities, setAddonQuantities] = useState<Record<string, number>>({});
   const [recipientName, setRecipientName] = useState("");
   const [recipientPhone, setRecipientPhone] = useState("");
   const [deliveryDateTime, setDeliveryDateTime] = useState("");
@@ -194,40 +191,89 @@ export const ChopsAndSurpriseBuilder: React.FC<ChopsAndSurpriseBuilderProps> = (
   const currentTier =
     SURPRISE_BOX_PACKAGES.find((t) => t.id === selectedTierId) || SURPRISE_BOX_PACKAGES[1];
 
-  const surpriseAddonsTotal = SURPRISE_ADDONS.filter((a) =>
-    selectedAddonIds.includes(a.id)
-  ).reduce((sum, item) => sum + item.price, 0);
+  const surpriseAddonsTotal = Object.entries(addonQuantities).reduce((sum, [id, qty]) => {
+    const addon = SURPRISE_ADDONS.find((a) => a.id === id);
+    return sum + (addon ? addon.price * qty : 0);
+  }, 0);
+
+  const totalAddonItemsCount = Object.values(addonQuantities).reduce((sum, qty) => sum + qty, 0);
 
   const surpriseGrandTotal = currentTier.basePrice + surpriseAddonsTotal;
 
-  const toggleSurpriseAddon = (addonId: string) => {
-    setSelectedAddonIds((prev) =>
-      prev.includes(addonId) ? prev.filter((id) => id !== addonId) : [...prev, addonId]
-    );
+  const handleUpdateAddonQty = (addonId: string, delta: number) => {
+    setAddonQuantities((prev) => {
+      const current = prev[addonId] || 0;
+      const next = current + delta;
+      if (next <= 0) {
+        const copy = { ...prev };
+        delete copy[addonId];
+        return copy;
+      }
+      return { ...prev, [addonId]: next };
+    });
   };
 
   const handleAddSurpriseToCart = () => {
+    const addonSummary = Object.entries(addonQuantities)
+      .map(([id, qty]) => {
+        const a = SURPRISE_ADDONS.find((item) => item.id === id);
+        return a ? `${qty}x ${a.name}` : null;
+      })
+      .filter(Boolean)
+      .join(", ");
+
     onAddToCart({
       id: `${currentTier.id}-${Date.now()}`,
       name: `${currentTier.tierName}`,
-      subtitle: `${currentTier.tagline} • ${selectedAddonIds.length} Add-ons`,
+      subtitle: `${currentTier.tagline}${
+        addonSummary ? ` • Add-ons: ${addonSummary}` : ""
+      }`,
       price: surpriseGrandTotal,
       image: currentTier.image,
     });
   };
 
   const handleDirectWhatsAppSurprise = () => {
-    const addonsNames = SURPRISE_ADDONS.filter((a) => selectedAddonIds.includes(a.id))
-      .map((a) => `• ${a.name} (${a.price === 0 ? "FREE" : `+₦${a.price.toLocaleString()}`})`)
-      .join("%0A");
+    const randomRef = Math.floor(1000 + Math.random() * 9000);
+    const orderRef = `#SOZ-SURPRISE-${randomRef}`;
 
-    const message = `Hello Chef So'z! I would like to book a *${currentTier.tierName}*:%0A%0A*PACKAGE DETAILS:*%0A• Base Price: ₦${currentTier.basePrice.toLocaleString()}%0A${
-      addonsNames ? `*Add-ons:*%0A${addonsNames}%0A` : ""
-    }*Total:* ₦${surpriseGrandTotal.toLocaleString()}%0A%0A*RECIPIENT & DELIVERY INFO:*%0A• Recipient Name: ${
-      recipientName || "Not provided yet"
-    }%0A• Recipient Phone: ${recipientPhone || "Not provided yet"}%0A• Preferred Date/Time: ${
-      deliveryDateTime || "ASAP"
-    }%0A• Delivery Zone: ${selectedZone}%0A• Custom Note: "${customNote || "Best Wishes!"}"%0A%0APlease confirm availability & account details!`;
+    const addonsList = Object.entries(addonQuantities)
+      .map(([id, qty]) => {
+        const a = SURPRISE_ADDONS.find((item) => item.id === id);
+        if (!a) return null;
+        return `• ${qty}x *${a.name}* (₦${(a.price * qty).toLocaleString()})`;
+      })
+      .filter(Boolean)
+      .join("\n");
+
+    const message = `🎁 *ROYAL SURPRISE PACKAGE BOOKING — SO'Z CRAVINGS*
+━━━━━━━━━━━━━━━━━━━━
+🧾 *Order Ref:* ${orderRef}
+💰 *GRAND TOTAL: ₦${surpriseGrandTotal.toLocaleString()}*
+📦 *Package:* ${currentTier.tierName}
+━━━━━━━━━━━━━━━━━━━━
+
+👤 *RECIPIENT & SURPRISE LOGISTICS:*
+• Recipient / Celebrant Name: ${recipientName.trim() || "To be confirmed"}
+• Recipient Phone: ${recipientPhone.trim() || "To be confirmed"}
+• Target Surprise Date & Time: ${deliveryDateTime.trim() || "Flexible / ASAP"}
+• Delivery Zone: ${selectedZone}
+• Calligraphy Message Note: "${customNote.trim() || "Best Wishes!"}"
+
+🎁 *PACKAGE INCLUSIONS:*
+• Package: *${currentTier.tierName}* (Base: ₦${currentTier.basePrice.toLocaleString()})
+${currentTier.includes.map((inc) => `  ✓ ${inc}`).join("\n")}
+
+⚙️ *CUSTOM CELEBRATION ADD-ONS:*
+${addonsList || "• None (Standard Package Only)"}
+
+━━━━━━━━━━━━━━━━━━━━
+💳 *PAYMENT BREAKDOWN:*
+• Base Package: ₦${currentTier.basePrice.toLocaleString()}
+${totalAddonItemsCount > 0 ? `• Custom Add-ons (${totalAddonItemsCount} items): +₦${surpriseAddonsTotal.toLocaleString()}\n` : ""}👉 *GRAND TOTAL: ₦${surpriseGrandTotal.toLocaleString()}*
+━━━━━━━━━━━━━━━━━━━━
+
+Chef Sonia, please confirm availability for this surprise date & provide your bank transfer details!`;
 
     window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${encodeURIComponent(message)}`, "_blank");
   };
@@ -842,30 +888,60 @@ export const ChopsAndSurpriseBuilder: React.FC<ChopsAndSurpriseBuilderProps> = (
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {SURPRISE_ADDONS.map((addon) => {
-                      const isChecked = selectedAddonIds.includes(addon.id);
+                      const qty = addonQuantities[addon.id] || 0;
+                      const isSelected = qty > 0;
 
                       return (
                         <div
                           key={addon.id}
-                          onClick={() => toggleSurpriseAddon(addon.id)}
-                          className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between ${
-                            isChecked
-                              ? "bg-[#261533] border-[#D4AF37] text-[#FAF6F0]"
+                          className={`p-3.5 rounded-2xl border transition-all flex items-center justify-between gap-3 ${
+                            isSelected
+                              ? "bg-[#261533] border-[#D4AF37] text-[#FAF6F0] shadow-md"
                               : "bg-[#0B070E] border-[#D4AF37]/20 text-[#B8ACA3] hover:border-[#D4AF37]/40"
                           }`}
                         >
-                          <div className="space-y-0.5">
-                            <span className="text-xs font-bold block">{addon.name}</span>
-                            <span className="text-[11px] font-mono text-[#F3C663] tabular-nums">
-                              {addon.price === 0 ? "FREE INCLUSION" : `+₦${addon.price.toLocaleString()}`}
+                          <div className="space-y-0.5 min-w-0">
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-[#160E1D] text-[#D4AF37] border border-[#D4AF37]/25">
+                                {addon.category}
+                              </span>
+                            </div>
+                            <span className="text-xs font-bold block text-[#FAF6F0] truncate">{addon.name}</span>
+                            <span className="text-[11px] font-mono text-[#F3C663] tabular-nums block">
+                              ₦{addon.price.toLocaleString()} each
                             </span>
+                            {isSelected && (
+                              <span className="text-[10px] font-mono text-[#E86F2C] block font-semibold">
+                                Subtotal: ₦{(addon.price * qty).toLocaleString()} ({qty}x)
+                              </span>
+                            )}
                           </div>
-                          <div
-                            className={`w-5 h-5 rounded-md border flex items-center justify-center ${
-                              isChecked ? "bg-[#6B21A8] border-[#D4AF37]" : "border-[#D4AF37]/30"
-                            }`}
-                          >
-                            {isChecked && <Check className="w-3.5 h-3.5 text-white" />}
+
+                          <div className="flex items-center gap-2 bg-[#160E1D] p-1.5 rounded-xl border border-[#D4AF37]/25 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => handleUpdateAddonQty(addon.id, -1)}
+                              disabled={qty === 0}
+                              className={`w-6 h-6 rounded-md flex items-center justify-center transition-colors cursor-pointer ${
+                                qty > 0
+                                  ? "bg-[#261533] text-[#FAF6F0] hover:bg-[#E86F2C]"
+                                  : "bg-transparent text-[#554d46] cursor-not-allowed"
+                              }`}
+                              title="Decrease count"
+                            >
+                              <Minus className="w-3 h-3" />
+                            </button>
+                            <span className="font-mono text-xs font-bold text-[#FAF6F0] min-w-5 text-center tabular-nums">
+                              {qty}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => handleUpdateAddonQty(addon.id, 1)}
+                              className="w-6 h-6 rounded-md bg-[#261533] text-[#FAF6F0] flex items-center justify-center hover:bg-[#6B21A8] hover:text-[#D4AF37] transition-colors cursor-pointer"
+                              title="Add more"
+                            >
+                              <Plus className="w-3 h-3" />
+                            </button>
                           </div>
                         </div>
                       );
@@ -971,11 +1047,27 @@ export const ChopsAndSurpriseBuilder: React.FC<ChopsAndSurpriseBuilderProps> = (
                         </span>
                       </div>
                       <div className="flex justify-between text-[#B8ACA3]">
-                        <span>Selected Add-ons ({selectedAddonIds.length}):</span>
+                        <span>Custom Add-ons ({totalAddonItemsCount} items):</span>
                         <span className="font-mono text-[#FAF6F0] tabular-nums">
                           +₦{surpriseAddonsTotal.toLocaleString()}
                         </span>
                       </div>
+
+                      {totalAddonItemsCount > 0 && (
+                        <div className="pt-2 pb-1 space-y-1 text-[11px] text-[#E8D8C8] border-t border-[#D4AF37]/10">
+                          {Object.entries(addonQuantities).map(([id, qty]) => {
+                            const a = SURPRISE_ADDONS.find((item) => item.id === id);
+                            if (!a) return null;
+                            return (
+                              <div key={id} className="flex justify-between">
+                                <span className="truncate pr-2">{qty}x {a.name}</span>
+                                <span className="font-mono shrink-0">₦{(a.price * qty).toLocaleString()}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+
                       <div className="flex justify-between text-base font-bold text-[#F3C663] pt-3 border-t border-[#D4AF37]/15">
                         <span>Grand Total:</span>
                         <span className="font-mono text-2xl text-[#E86F2C] tabular-nums">

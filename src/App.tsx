@@ -198,7 +198,7 @@ export function App() {
       id: "marquee-1",
       title: "Gourmet Fisherman Soup",
       subtitle: "Jumbo Prawns, Crab & Sea Snails",
-      priceTag: "From ₦28,000",
+      priceTag: "From ₦30,000",
       image: "/images/single-soup-bowl.webp",
     },
     {
@@ -288,8 +288,10 @@ export function App() {
   const handleMarqueeAddToCart = (dish: MarqueeDishCard) => {
     const numPrice = dish.priceTag.includes("35,000")
       ? 35000
+      : dish.priceTag.includes("30,000")
+      ? 30000
       : dish.priceTag.includes("28,000")
-      ? 28000
+      ? 30000
       : dish.priceTag.includes("26,000")
       ? 26000
       : dish.priceTag.includes("25,000")
@@ -416,7 +418,7 @@ Please confirm kitchen availability and provide your account transfer details!`;
               </div>
               <span className="text-[10px] uppercase tracking-widest text-[#B8ACA3] -mt-1 font-medium flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E86F2C] inline-block animate-pulse" />
-                Eneka, Port Harcourt • Est. 2024
+                Eneka, Port Harcourt • Est. 2021
               </span>
             </div>
           </button>

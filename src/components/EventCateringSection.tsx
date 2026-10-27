@@ -164,8 +164,8 @@ Chef Sonia, please review and confirm availability for this date so we can plan 
   const extraHoursCost = extraHours * 15000;
   const groceryShoppingCost = needsGroceryShopping ? 20000 : 0;
   const chefTotalFee = selectedChefTier.price + extraHoursCost + groceryShoppingCost;
-  const chefDeposit50 = Math.round(chefTotalFee * 0.5);
-  const chefBalance50 = chefTotalFee - chefDeposit50;
+  const chefDeposit70 = Math.round(chefTotalFee * 0.7);
+  const chefBalance30 = chefTotalFee - chefDeposit70;
 
   const handleSendChefBooking = () => {
     const randomRef = Math.floor(1000 + Math.random() * 9000);
@@ -181,7 +181,7 @@ Chef Sonia, please review and confirm availability for this date so we can plan 
 ━━━━━━━━━━━━━━━━━━━━
 🧾 *Booking Ref:* ${bookingRef}
 💰 *TOTAL SERVICE FEE: ₦${chefTotalFee.toLocaleString()}*
-⭐ *50% REQUIRED DEPOSIT: ₦${chefDeposit50.toLocaleString()}*
+⭐ *70% REQUIRED DEPOSIT: ₦${chefDeposit70.toLocaleString()}*
 📅 *Target Start Date:* ${startDateDisplay}
 ━━━━━━━━━━━━━━━━━━━━
 
@@ -207,13 +207,13 @@ Chef Sonia, please review and confirm availability for this date so we can plan 
 💳 *FEE & DEPOSIT BREAKDOWN:*
 • Base Package Fee: ₦${selectedChefTier.price.toLocaleString()}
 ${extraHours > 0 ? `• Extra Hours (${extraHours}h @ ₦15,000): +₦${extraHoursCost.toLocaleString()}\n` : ""}${needsGroceryShopping ? "• Market Grocery Shopping Service: +₦20,000\n" : ""}👉 *TOTAL SERVICE FEE: ₦${chefTotalFee.toLocaleString()}*
-⭐ *50% CONFIRMATION DEPOSIT: ₦${chefDeposit50.toLocaleString()}*
-• 50% Balance (Upon Completion): ₦${chefBalance50.toLocaleString()}
+⭐ *70% CONFIRMATION DEPOSIT: ₦${chefDeposit70.toLocaleString()}*
+• 30% Balance (Upon Completion): ₦${chefBalance30.toLocaleString()}
 ━━━━━━━━━━━━━━━━━━━━
 
 📌 *TERMS ACKNOWLEDGED BY CLIENT:*
-✓ 50% initial deposit required to lock dates in Chef Sonia's calendar
-✓ Remaining 50% balance payable upon completion of service
+✓ 70% initial deposit required to lock dates in Chef Sonia's calendar
+✓ Remaining 30% balance payable upon completion of service
 ✓ Shift duration is capped at maximum 7 hours per service day
 ✓ Food ingredients/groceries are separate (not included in chef labor fee)
 
@@ -785,18 +785,18 @@ Chef Sonia, please confirm your availability for this date and provide your bank
                         </span>
                       </div>
 
-                      {/* 50% Deposit Required Card */}
+                      {/* 70% Deposit Required Card */}
                       <div className="p-4 rounded-xl royal-badge border border-[#D4AF37]/50 mt-3 space-y-1">
                         <div className="flex items-center justify-between">
                           <span className="text-[11px] font-mono uppercase tracking-wider text-[#FAF6F0]">
-                            50% Initial Deposit:
+                            70% Initial Deposit:
                           </span>
                           <span className="font-mono font-black text-2xl text-[#F3C663] tabular-nums">
-                            ₦{chefDeposit50.toLocaleString()}
+                            ₦{chefDeposit70.toLocaleString()}
                           </span>
                         </div>
                         <p className="text-[10px] text-[#E8D8C8] leading-tight">
-                          *50% deposit required to confirm Chef Sonia's calendar; balance paid upon completion.
+                          *70% deposit required to confirm Chef Sonia's calendar; 30% balance paid upon completion.
                         </p>
                       </div>
                     </div>

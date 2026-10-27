@@ -107,7 +107,7 @@ export interface SurpriseAddon {
   id: string;
   name: string;
   price: number;
-  category: "Bakery" | "Drink" | "Flower" | "Keepsake";
+  category: "Bakery" | "Drink" | "Flower" | "Keepsake" | "Small Chops" | "Protein";
 }
 
 export interface DeliveryZone {
@@ -131,6 +131,7 @@ export interface PrivateChefTier {
 export const SOZ_BRAND_IDENTITY = {
   brandName: "So'z Cravings",
   chefName: "Chef Sonia (Chef So'z)",
+  establishedYear: "2021",
   brandLogo: "/images/soz-crest-dark.webp",
   primaryTagline: "GOOD FOOD • GREAT VIBES • MEMORABLE MOMENTS",
   secondaryTagline: "CRAVE IT. WE DELIVER. • Small Chops, Big Vibes! • Fries. Flavor. Satisfaction.",
@@ -461,7 +462,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     leadTime: "Requires 24hrs Pre-Order",
     isPremiumSeafood: true,
     sizes: [
-      { sizeLabel: "1.5L", price: 28000, servingsEstimate: "4–6 generous servings" },
+      { sizeLabel: "1.5L", price: 30000, servingsEstimate: "4–6 generous servings" },
       { sizeLabel: "2L", price: 36000, servingsEstimate: "6–9 servings" },
       { sizeLabel: "3L", price: 52000, servingsEstimate: "10–14 servings" },
       { sizeLabel: "4L", price: 68000, servingsEstimate: "15–20 servings" },
@@ -482,7 +483,7 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     leadTime: "Requires 24hrs Pre-Order",
     isPremiumSeafood: true,
     sizes: [
-      { sizeLabel: "1.5L", price: 26000, servingsEstimate: "4–6 servings" },
+      { sizeLabel: "1.5L", price: 30000, servingsEstimate: "4–6 servings" },
       { sizeLabel: "2L", price: 34000, servingsEstimate: "6–9 servings" },
       { sizeLabel: "3L", price: 48000, servingsEstimate: "10–14 servings" },
       { sizeLabel: "4L", price: 62000, servingsEstimate: "15–20 servings" },
@@ -501,10 +502,10 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     image: "/images/single-soup-bowl.webp",
     leadTime: "Requires 24hrs Pre-Order",
     sizes: [
-      { sizeLabel: "1.5L", price: 22000, servingsEstimate: "5–7 servings" },
-      { sizeLabel: "2L", price: 28000, servingsEstimate: "8–10 servings" },
-      { sizeLabel: "3L", price: 40000, servingsEstimate: "12–15 servings" },
-      { sizeLabel: "4L", price: 52000, servingsEstimate: "16–20 servings" },
+      { sizeLabel: "1.5L", price: 30000, servingsEstimate: "5–7 servings" },
+      { sizeLabel: "2L", price: 36000, servingsEstimate: "8–10 servings" },
+      { sizeLabel: "3L", price: 48000, servingsEstimate: "12–15 servings" },
+      { sizeLabel: "4L", price: 60000, servingsEstimate: "16–20 servings" },
     ],
     extraAddons: [
       { id: "extra-goat-classic", name: "Extra Tender Goat Meat", price: 4500 },
@@ -521,10 +522,10 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     leadTime: "Requires 24hrs Pre-Order",
     isPremiumSeafood: true,
     sizes: [
-      { sizeLabel: "1.5L", price: 25000, servingsEstimate: "4–6 servings" },
-      { sizeLabel: "2L", price: 32000, servingsEstimate: "6–9 servings" },
-      { sizeLabel: "3L", price: 46000, servingsEstimate: "10–14 servings" },
-      { sizeLabel: "4L", price: 60000, servingsEstimate: "15–20 servings" },
+      { sizeLabel: "1.5L", price: 30000, servingsEstimate: "4–6 servings" },
+      { sizeLabel: "2L", price: 36000, servingsEstimate: "6–9 servings" },
+      { sizeLabel: "3L", price: 50000, servingsEstimate: "10–14 servings" },
+      { sizeLabel: "4L", price: 64000, servingsEstimate: "15–20 servings" },
     ],
     extraAddons: [
       { id: "extra-crab-okro", name: "Extra Mangrove Crabs", price: 4500 },
@@ -539,10 +540,10 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     image: "/images/rice-combo-plate.webp",
     leadTime: "Available for same-day & 24hr orders",
     sizes: [
-      { sizeLabel: "1.5L", price: 20000, servingsEstimate: "4–6 servings" },
-      { sizeLabel: "2L", price: 25000, servingsEstimate: "6–8 servings" },
-      { sizeLabel: "3L", price: 36000, servingsEstimate: "9–12 servings" },
-      { sizeLabel: "4L", price: 48000, servingsEstimate: "13–18 servings" },
+      { sizeLabel: "1.5L", price: 35000, servingsEstimate: "4–6 servings" },
+      { sizeLabel: "2L", price: 42000, servingsEstimate: "6–8 servings" },
+      { sizeLabel: "3L", price: 55000, servingsEstimate: "9–12 servings" },
+      { sizeLabel: "4L", price: 70000, servingsEstimate: "13–18 servings" },
     ],
     extraAddons: [
       { id: "extra-chicken-cuts", name: "Extra 4 Peppered Chicken Cuts", price: 4500 },
@@ -557,10 +558,10 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     image: "/images/single-soup-bowl.webp",
     leadTime: "Requires 24hrs Pre-Order",
     sizes: [
-      { sizeLabel: "1.5L", price: 24000, servingsEstimate: "4–6 servings" },
-      { sizeLabel: "2L", price: 30000, servingsEstimate: "6–8 servings" },
-      { sizeLabel: "3L", price: 42000, servingsEstimate: "9–12 servings" },
-      { sizeLabel: "4L", price: 56000, servingsEstimate: "13–18 servings" },
+      { sizeLabel: "1.5L", price: 35000, servingsEstimate: "4–6 servings" },
+      { sizeLabel: "2L", price: 44000, servingsEstimate: "6–8 servings" },
+      { sizeLabel: "3L", price: 58000, servingsEstimate: "9–12 servings" },
+      { sizeLabel: "4L", price: 72000, servingsEstimate: "13–18 servings" },
     ],
     extraAddons: [
       { id: "extra-goat-stew", name: "Extra Soft Goat Meat Cuts", price: 5000 },
@@ -575,10 +576,10 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     image: "/images/rice-combo-plate.webp",
     leadTime: "Same day & Pre-order available",
     sizes: [
-      { sizeLabel: "1.5L", price: 16000, servingsEstimate: "4–5 servings" },
-      { sizeLabel: "2L", price: 20000, servingsEstimate: "6–8 servings" },
-      { sizeLabel: "3L", price: 28000, servingsEstimate: "10–13 servings" },
-      { sizeLabel: "4L", price: 38000, servingsEstimate: "14–18 servings" },
+      { sizeLabel: "1.5L", price: 30000, servingsEstimate: "4–5 servings" },
+      { sizeLabel: "2L", price: 38000, servingsEstimate: "6–8 servings" },
+      { sizeLabel: "3L", price: 50000, servingsEstimate: "10–13 servings" },
+      { sizeLabel: "4L", price: 64000, servingsEstimate: "14–18 servings" },
     ],
     extraAddons: [
       { id: "extra-plantain-dodo", name: "Add Fried Sweet Plantain Tray", price: 3000 },
@@ -593,10 +594,10 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     image: "/images/rice-combo-plate.webp",
     leadTime: "Same day & Pre-order available",
     sizes: [
-      { sizeLabel: "1.5L", price: 18000, servingsEstimate: "4–5 servings" },
-      { sizeLabel: "2L", price: 22000, servingsEstimate: "6–8 servings" },
-      { sizeLabel: "3L", price: 32000, servingsEstimate: "10–13 servings" },
-      { sizeLabel: "4L", price: 42000, servingsEstimate: "14–18 servings" },
+      { sizeLabel: "1.5L", price: 30000, servingsEstimate: "4–5 servings" },
+      { sizeLabel: "2L", price: 40000, servingsEstimate: "6–8 servings" },
+      { sizeLabel: "3L", price: 52000, servingsEstimate: "10–13 servings" },
+      { sizeLabel: "4L", price: 66000, servingsEstimate: "14–18 servings" },
     ],
     extraAddons: [
       { id: "extra-shrimps-fried-rice", name: "Add Sauteed Shrimps Mix", price: 4500 },
@@ -612,10 +613,10 @@ export const LITER_BOWL_MENU: LiterBowlOption[] = [
     leadTime: "Requires 24hrs Pre-Order",
     isPremiumSeafood: true,
     sizes: [
-      { sizeLabel: "1.5L", price: 22000, servingsEstimate: "3–5 servings" },
-      { sizeLabel: "2L", price: 28000, servingsEstimate: "5–7 servings" },
-      { sizeLabel: "3L", price: 40000, servingsEstimate: "8–11 servings" },
-      { sizeLabel: "4L", price: 54000, servingsEstimate: "12–16 servings" },
+      { sizeLabel: "1.5L", price: 30000, servingsEstimate: "3–5 servings" },
+      { sizeLabel: "2L", price: 40000, servingsEstimate: "5–7 servings" },
+      { sizeLabel: "3L", price: 54000, servingsEstimate: "8–11 servings" },
+      { sizeLabel: "4L", price: 68000, servingsEstimate: "12–16 servings" },
     ],
     extraAddons: [
       { id: "extra-pasta-cheese", name: "Extra Melted Cheese & Prawns", price: 5000 },
@@ -746,7 +747,7 @@ export const PRIVATE_CHEF_RATES: PrivateChefTier[] = [
 ];
 
 export const PRIVATE_CHEF_TERMS = [
-  "50% initial deposit required to confirm booking; balance paid upon completion.",
+  "70% initial deposit required to confirm booking; 30% balance paid upon completion.",
   "Maximum of 7 hours per day service.",
   "Ingredients aren't included (client provides or books grocery shopping).",
   "Extra hours: ₦15,000 per hour (stepper 0 to 5 hours).",
@@ -764,39 +765,35 @@ export const SURPRISE_BOX_PACKAGES: SurpriseBoxPackage[] = [
     includes: [
       "Mini Chops Box (20 Puffs, 4 Samosas, 4 Spring Rolls)",
       "2 Peppered Chicken Cuts",
-      "Celebration Cupcake / Mini Bento Treat",
+      "Bento Cake",
       "Personalized Handwritten Calligraphy Note",
-      "Luxury Obsidian & Gold Presentation Box",
     ],
     recommendedFor: "Birthdays, Appreciation Gifts, Sweet Romances",
   },
   {
     id: "surprise-gold",
-    tierName: "Gold Majesty Package",
+    tierName: "Gold Cravings Package",
     tagline: "Our Best-Selling Royal Treat for Celebrations",
     basePrice: 65000,
     image: "/images/box-of-fries.webp",
     includes: [
       "The Odogwu Small Chops Box (35 Puffs, 8 Samosas, 8 Spring Rolls, 4 Turkey Cuts)",
       "1 Bottle of Premium Non-Alcoholic Wine / Sparkling Cider",
-      "Custom Engraved Acrylic Keepsake / Photo Frame",
-      "Celebration Balloon Bunch",
-      "Gold Satin Bow Ribbon & Luxury Box Setup",
+      "Bento Cake",
+      "Personalized Handwritten Calligraphy Note",
     ],
     recommendedFor: "Milestone Birthdays, Promotions, Anniversaries",
   },
   {
     id: "surprise-diamond",
-    tierName: "Diamond Empress Package",
+    tierName: "Diamond Cravings Package",
     tagline: "The Ultimate VIP In-Home Surprise Experience",
     basePrice: 115000,
     image: "/images/rice-combo-plate.webp",
     includes: [
-      "Gourmet Food Tray (Smokey Jollof + Fried Rice + Peppered Turkey + Small Chops)",
+      "Soz Food Box (Smokey Jollof + Fried Rice + Peppered Turkey + Small Chops)",
       "Premium Imported Champagne / Sparkling Wine",
-      "Fresh Velvet Rose Bouquet (6 Stems)",
-      "Customized Framed Portrait of Celebrant",
-      "Helium Floating Birthday / Love Balloons (3 pcs)",
+      "Bento Cake",
       "Surprise Doorstep Delivery Serenade Coordinator",
     ],
     recommendedFor: "Proposals, Weddings, Milestone Jubilees, VIP Spouses",
@@ -804,12 +801,19 @@ export const SURPRISE_BOX_PACKAGES: SurpriseBoxPackage[] = [
 ];
 
 export const SURPRISE_ADDONS: SurpriseAddon[] = [
-  { id: "addon-wine", name: "Chilled Sparkling Wine / Cider", price: 8000, category: "Drink" },
-  { id: "addon-flowers", name: "Fresh Velvet Red Roses Bouquet", price: 12000, category: "Flower" },
-  { id: "addon-frame", name: "Customized Photo Frame (A4)", price: 7000, category: "Keepsake" },
-  { id: "addon-balloons", name: "Helium Foil Celebration Balloons (3 pcs)", price: 6000, category: "Keepsake" },
-  { id: "addon-cake", name: "4-Inch Mini Gourmet Buttercream Bento Cake", price: 10000, category: "Bakery" },
-  { id: "addon-card", name: "Luxury Wax-Sealed Calligraphy Card", price: 0, category: "Keepsake" },
+  { id: "addon-wine-non-alcoholic", name: "Non-Alcoholic Wine", price: 15000, category: "Drink" },
+  { id: "addon-wine-alcoholic", name: "Alcoholic Wine", price: 25000, category: "Drink" },
+  { id: "addon-puff", name: "Smallchops Puff-Puff", price: 150, category: "Small Chops" },
+  { id: "addon-samosa", name: "Samosas", price: 600, category: "Small Chops" },
+  { id: "addon-spring-roll", name: "Spring Rolls", price: 600, category: "Small Chops" },
+  { id: "addon-chicken-cut", name: "Chicken Cut", price: 2500, category: "Protein" },
+  { id: "addon-chicken-lap", name: "Chicken Lap", price: 5000, category: "Protein" },
+  { id: "addon-turkey-cut", name: "Turkey Cut", price: 5000, category: "Protein" },
+  { id: "addon-full-turkey", name: "Full Turkey", price: 10000, category: "Protein" },
+  { id: "addon-bento-cake", name: "Bento Cake", price: 20000, category: "Bakery" },
+  { id: "addon-medium-cake", name: "Medium Size Cake", price: 35000, category: "Bakery" },
+  { id: "addon-big-cake", name: "Big Cake", price: 50000, category: "Bakery" },
+  { id: "addon-card", name: "Celebration Card", price: 5000, category: "Keepsake" },
 ];
 
 export const PH_DELIVERY_ZONES: DeliveryZone[] = [
