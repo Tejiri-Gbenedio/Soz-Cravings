@@ -29,6 +29,8 @@ export const EventCateringSection: React.FC = () => {
   const [eventType, setEventType] = useState("Wedding");
   const [serviceStyle, setServiceStyle] = useState("Full Canapé Settings");
   const [guestCount, setGuestCount] = useState<number>(100);
+  const [eventClientName, setEventClientName] = useState("");
+  const [eventClientPhone, setEventClientPhone] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventLocation, setEventLocation] = useState("GRA Phase 2, Port Harcourt");
   const [specialNotes, setSpecialNotes] = useState("");
@@ -38,6 +40,8 @@ export const EventCateringSection: React.FC = () => {
   const [selectedChefTierId, setSelectedChefTierId] = useState<string>("daily-2");
   const [extraHours, setExtraHours] = useState<number>(0);
   const [needsGroceryShopping, setNeedsGroceryShopping] = useState<boolean>(true);
+  const [chefClientName, setChefClientName] = useState<string>("");
+  const [chefClientPhone, setChefClientPhone] = useState<string>("");
   const [chefServiceDate, setChefServiceDate] = useState<string>("");
   const [chefServiceLocation, setChefServiceLocation] = useState<string>("Port Harcourt Residence");
   const [chefDietaryNotes, setChefDietaryNotes] = useState<string>("");
@@ -111,13 +115,44 @@ export const EventCateringSection: React.FC = () => {
   const estimatedMax = Math.round(estimatedMin * 1.25);
 
   const handleSendWhatsAppQuote = () => {
-    const text = `Hello Chef So'z! I would like to request a Custom Event Catering Quote:%0A%0A*EVENT SPECIFICATIONS:*%0A• Event Type: ${eventType}%0A• Service Style: ${serviceStyle}%0A• Estimated Guests: ${guestCount} Guests%0A• Target Date: ${
-      eventDate || "To be confirmed"
-    }%0A• Location / Venue: ${
-      eventLocation || "Port Harcourt"
-    }%0A• Estimated Budget Range: ₦${estimatedMin.toLocaleString()} – ₦${estimatedMax.toLocaleString()}%0A${
-      specialNotes ? `• Special Requests: "${specialNotes}"%0A` : ""
-    }%0APlease let me know your availability for this date so we can finalize details!`;
+    const randomRef = Math.floor(1000 + Math.random() * 9000);
+    const inquiryRef = `#SOZ-EVENT-${randomRef}`;
+
+    const hostName = eventClientName.trim() || "Event Host";
+    const hostPhone = eventClientPhone.trim() || "Provided on WhatsApp";
+    const dateDisplay = eventDate.trim() || "To be confirmed";
+    const venueDisplay = eventLocation.trim() || "Port Harcourt Venue";
+    const notesDisplay = specialNotes.trim() ? `"${specialNotes.trim()}"` : "Standard event package requested";
+
+    const text = `🎪 *EVENT CATERING INQUIRY — SO'Z CRAVINGS*
+━━━━━━━━━━━━━━━━━━━━
+🧾 *Inquiry Ref:* ${inquiryRef}
+💰 *ESTIMATED BUDGET: ₦${estimatedMin.toLocaleString()} – ₦${estimatedMax.toLocaleString()}*
+👥 *Guest Count:* ${guestCount} Guests
+📅 *Target Event Date:* ${dateDisplay}
+━━━━━━━━━━━━━━━━━━━━
+
+👤 *HOST & CONTACT DETAILS:*
+• Host Name: ${hostName}
+• Phone: ${hostPhone}
+• Event Type: ${eventType}
+• Preferred Service Style: ${serviceStyle}
+• Event Venue / Area: ${venueDisplay}
+• Target Date: ${dateDisplay}
+
+📋 *EVENT SCOPE & SPECIFICATIONS:*
+• Total Estimated Guests: ${guestCount} Guests
+• Service Style: ${serviceStyle}
+• Special Requests / Notes: ${notesDisplay}
+
+━━━━━━━━━━━━━━━━━━━━
+💳 *BUDGET ESTIMATION:*
+• Base Per Guest Rate: ~₦${basePerGuest.toLocaleString()} / guest
+👉 *ESTIMATED BUDGET RANGE: ₦${estimatedMin.toLocaleString()} – ₦${estimatedMax.toLocaleString()}*
+_(Final quote customized upon final menu selection & logistics)_
+━━━━━━━━━━━━━━━━━━━━
+
+Chef Sonia, please review and confirm availability for this date so we can plan the menu!`;
 
     window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${encodeURIComponent(text)}`, "_blank");
   };
@@ -130,15 +165,59 @@ export const EventCateringSection: React.FC = () => {
   const groceryShoppingCost = needsGroceryShopping ? 20000 : 0;
   const chefTotalFee = selectedChefTier.price + extraHoursCost + groceryShoppingCost;
   const chefDeposit50 = Math.round(chefTotalFee * 0.5);
+  const chefBalance50 = chefTotalFee - chefDeposit50;
 
   const handleSendChefBooking = () => {
-    const text = `Hello Chef Sonia! I want to book your *Private Chef Service — Naija to Gourmet by Chef Soz*:%0A%0A*SELECTED TIER:*%0A• Package: ${selectedChefTier.title} (${selectedChefTier.category})%0A• Base Service Fee: ₦${selectedChefTier.price.toLocaleString()}%0A• Schedule / Frequency: ${selectedChefTier.frequency}%0A${
-      extraHours > 0 ? `• Extra Hours: ${extraHours} hrs (+₦${extraHoursCost.toLocaleString()})%0A` : ""
-    }${
-      needsGroceryShopping ? `• Market Grocery Shopping: Yes (+₦20,000)%0A` : "• Market Grocery Shopping: Provided by Client%0A"
-    }• *TOTAL SERVICE FEE:* ₦${chefTotalFee.toLocaleString()}%0A• *50% REQUIRED DEPOSIT:* ₦${chefDeposit50.toLocaleString()}%0A%0A*SERVICE LOGISTICS:*%0A• Target Start Date: ${chefServiceDate || "Flexible / ASAP"}%0A• Residence Address / Area: ${chefServiceLocation || "Port Harcourt"}%0A${
-      chefDietaryNotes ? `• Dietary / Menu Preferences: "${chefDietaryNotes}"%0A` : ""
-    }%0A*TERMS ACKNOWLEDGED:*%0A- 50% initial deposit to confirm, balance upon completion.%0A- Max 7 hours per service day.%0A- Ingredients are not included.%0A%0APlease confirm your availability and provide bank transfer details!`;
+    const randomRef = Math.floor(1000 + Math.random() * 9000);
+    const bookingRef = `#SOZ-CHEF-${randomRef}`;
+
+    const clientNameDisplay = chefClientName.trim() || "Private Client";
+    const clientPhoneDisplay = chefClientPhone.trim() || "Provided on WhatsApp";
+    const startDateDisplay = chefServiceDate.trim() || "Flexible / ASAP";
+    const locationDisplay = chefServiceLocation.trim() || "Port Harcourt Residence";
+    const dietaryDisplay = chefDietaryNotes.trim() ? `"${chefDietaryNotes.trim()}"` : "None specified / Standard Gourmet Menu";
+
+    const text = `👑 *PRIVATE CHEF BOOKING — SO'Z CRAVINGS*
+━━━━━━━━━━━━━━━━━━━━
+🧾 *Booking Ref:* ${bookingRef}
+💰 *TOTAL SERVICE FEE: ₦${chefTotalFee.toLocaleString()}*
+⭐ *50% REQUIRED DEPOSIT: ₦${chefDeposit50.toLocaleString()}*
+📅 *Target Start Date:* ${startDateDisplay}
+━━━━━━━━━━━━━━━━━━━━
+
+👤 *CLIENT INFORMATION:*
+• Name: ${clientNameDisplay}
+• Phone: ${clientPhoneDisplay}
+• Kitchen / Residence Location: ${locationDisplay}
+
+🍽️ *SELECTED CHEF SERVICE PACKAGE:*
+• Package: ${selectedChefTier.title}
+• Booking Plan: ${selectedChefTier.category}
+• Frequency / Schedule: ${selectedChefTier.frequency}
+• Base Package Fee: ₦${selectedChefTier.price.toLocaleString()}
+• Recommended For: ${selectedChefTier.recommendedFor}
+• Daily Shift Limit: Max 7 hours per service day
+
+⚙️ *CUSTOMIZATIONS & ADD-ONS:*
+• Extra Cooking Hours: ${extraHours > 0 ? `${extraHours} hrs (+₦${extraHoursCost.toLocaleString()})` : "None (Standard Shift)"}
+• Market Grocery Shopping: ${needsGroceryShopping ? "Yes (+₦20,000) • Chef visits Mile 1/Oil Mill" : "No (Ingredients Provided by Client)"}
+• Dietary & Menu Preferences: ${dietaryDisplay}
+
+━━━━━━━━━━━━━━━━━━━━
+💳 *FEE & DEPOSIT BREAKDOWN:*
+• Base Package Fee: ₦${selectedChefTier.price.toLocaleString()}
+${extraHours > 0 ? `• Extra Hours (${extraHours}h @ ₦15,000): +₦${extraHoursCost.toLocaleString()}\n` : ""}${needsGroceryShopping ? "• Market Grocery Shopping Service: +₦20,000\n" : ""}👉 *TOTAL SERVICE FEE: ₦${chefTotalFee.toLocaleString()}*
+⭐ *50% CONFIRMATION DEPOSIT: ₦${chefDeposit50.toLocaleString()}*
+• 50% Balance (Upon Completion): ₦${chefBalance50.toLocaleString()}
+━━━━━━━━━━━━━━━━━━━━
+
+📌 *TERMS ACKNOWLEDGED BY CLIENT:*
+✓ 50% initial deposit required to lock dates in Chef Sonia's calendar
+✓ Remaining 50% balance payable upon completion of service
+✓ Shift duration is capped at maximum 7 hours per service day
+✓ Food ingredients/groceries are separate (not included in chef labor fee)
+
+Chef Sonia, please confirm your availability for this date and provide your bank transfer details to confirm this booking!`;
 
     window.open(`https://wa.me/${SOZ_BRAND_IDENTITY.whatsappPrimary}?text=${encodeURIComponent(text)}`, "_blank");
   };
@@ -302,6 +381,34 @@ export const EventCateringSection: React.FC = () => {
                           {style}
                         </button>
                       ))}
+                    </div>
+                  </div>
+
+                  {/* Host Contact Inputs */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <div>
+                      <label className="text-[11px] font-mono text-[#B8ACA3] block mb-1">
+                        Host / Organization Name:
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Dr. & Mrs. Okonkwo"
+                        value={eventClientName}
+                        onChange={(e) => setEventClientName(e.target.value)}
+                        className="w-full bg-[#0B070E] border border-[#D4AF37]/30 rounded-xl px-3.5 py-2 text-xs text-[#FAF6F0] focus:border-[#E86F2C] focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[11px] font-mono text-[#B8ACA3] block mb-1">
+                        Contact Phone Number:
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="e.g. 0803 000 0000"
+                        value={eventClientPhone}
+                        onChange={(e) => setEventClientPhone(e.target.value)}
+                        className="w-full bg-[#0B070E] border border-[#D4AF37]/30 rounded-xl px-3.5 py-2 text-xs text-[#FAF6F0] focus:border-[#E86F2C] focus:outline-none"
+                      />
                     </div>
                   </div>
 
@@ -564,6 +671,35 @@ export const EventCateringSection: React.FC = () => {
                       }`}
                     >
                       {needsGroceryShopping && <Check className="w-4 h-4 text-white" />}
+                    </div>
+                  </div>
+
+                  {/* Client Contact Inputs */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <div>
+                      <label className="text-[11px] font-mono text-[#B8ACA3] block mb-1">
+                        Your Name / Host Name:
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Chief / Mrs. Amadi"
+                        value={chefClientName}
+                        onChange={(e) => setChefClientName(e.target.value)}
+                        className="w-full bg-[#0B070E] border border-[#D4AF37]/30 rounded-xl px-3.5 py-2.5 text-xs text-[#FAF6F0] focus:border-[#E86F2C] focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-[11px] font-mono text-[#B8ACA3] block mb-1">
+                        Contact Phone Number:
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="e.g. 0803 123 4567"
+                        value={chefClientPhone}
+                        onChange={(e) => setChefClientPhone(e.target.value)}
+                        className="w-full bg-[#0B070E] border border-[#D4AF37]/30 rounded-xl px-3.5 py-2.5 text-xs text-[#FAF6F0] focus:border-[#E86F2C] focus:outline-none"
+                      />
                     </div>
                   </div>
 
