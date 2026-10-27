@@ -9,14 +9,13 @@
       name="description"
       content="Dark Culinary Luxury meets Royal Port Harcourt Hospitality. Box of Fries, Box of Chops, Gourmet 1.5L–4L Liter Bowls, Rice & Soup Plates, and Private Chef Catering by Chef So'z."
     />
-    <!-- Google Fonts Non-blocking -->
+
+    <!-- Preload Critical Brand Crest Image for Instant Render -->
+    <link rel="preload" as="image" href="/images/soz-crest-dark.webp" type="image/webp" />
+
+    <!-- Google Fonts Non-blocking (no render-blocking preload) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -29,9 +28,159 @@
         rel="stylesheet"
       />
     </noscript>
+
+    <!-- Inline Critical Splash Screen Styles (0ms Black Screen) -->
+    <style>
+      #instant-splash {
+        position: fixed;
+        inset: 0;
+        background-color: #0B070E;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        padding: 24px;
+        box-sizing: border-box;
+      }
+      .splash-crest-wrap {
+        position: relative;
+        margin-bottom: 22px;
+      }
+      .splash-crest-glow {
+        position: absolute;
+        inset: -12px;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(232, 111, 44, 0.15) 50%, transparent 70%);
+        border-radius: 50%;
+        animation: splashGlow 2.2s ease-in-out infinite alternate;
+      }
+      .splash-crest-img {
+        width: 78px;
+        height: 78px;
+        border-radius: 20px;
+        border: 1.5px solid rgba(212, 175, 55, 0.6);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.2);
+        position: relative;
+        object-fit: cover;
+        display: block;
+        animation: splashPulse 2.4s ease-in-out infinite;
+      }
+      .splash-brand {
+        text-align: center;
+        margin-bottom: 22px;
+      }
+      .splash-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+      .splash-title-bold {
+        font-size: 24px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        color: #FAF6F0;
+        text-transform: uppercase;
+      }
+      .splash-title-script {
+        font-size: 26px;
+        font-weight: 600;
+        font-style: italic;
+        color: #D4AF37;
+        font-family: "Cormorant Garamond", Georgia, serif;
+      }
+      .splash-tagline {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        color: #B8ACA3;
+        text-transform: uppercase;
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+      .splash-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #E86F2C;
+        display: inline-block;
+      }
+      .splash-bar-track {
+        width: 150px;
+        height: 3px;
+        background: rgba(212, 175, 55, 0.18);
+        border-radius: 999px;
+        overflow: hidden;
+        position: relative;
+      }
+      .splash-bar-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 45%;
+        background: linear-gradient(90deg, #D4AF37, #E86F2C, #F3C663);
+        border-radius: 999px;
+        animation: splashBar 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      .splash-status {
+        font-size: 10px;
+        font-family: monospace;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #D4AF37;
+        margin-top: 10px;
+        opacity: 0.9;
+      }
+      @keyframes splashPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.04); }
+      }
+      @keyframes splashGlow {
+        0%, 100% { opacity: 0.35; transform: scale(0.92); }
+        50% { opacity: 0.75; transform: scale(1.18); }
+      }
+      @keyframes splashBar {
+        0% { transform: translateX(-100%); }
+        60% { transform: translateX(80%); }
+        100% { transform: translateX(260%); }
+      }
+    </style>
   </head>
   <body class="bg-[#0B070E] text-[#FAF6F0] selection:bg-[#E86F2C] selection:text-white antialiased overflow-x-hidden font-sans">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Instant First-Frame Luxury Preloader (Replaced by React on Mount) -->
+      <div id="instant-splash">
+        <div class="splash-crest-wrap">
+          <div class="splash-crest-glow"></div>
+          <img
+            src="/images/soz-crest-dark.webp"
+            alt="So'z Cravings Official Crest"
+            class="splash-crest-img"
+          />
+        </div>
+
+        <div class="splash-brand">
+          <div class="splash-title-row">
+            <span class="splash-title-bold">SO'Z</span>
+            <span class="splash-title-script">Cravings</span>
+          </div>
+          <div class="splash-tagline">
+            <span class="splash-dot"></span>
+            Eneka, Port Harcourt • Est. 2024
+          </div>
+        </div>
+
+        <div class="splash-bar-track">
+          <div class="splash-bar-fill"></div>
+        </div>
+        <div class="splash-status">Opening Kitchen Studio...</div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

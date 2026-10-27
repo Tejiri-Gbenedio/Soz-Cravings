@@ -27,11 +27,10 @@ import {
   SOZ_FIVE_SERVICES,
   PH_DELIVERY_ZONES,
 } from "@/data/soz-menu-data";
-import { ChefStoryAndHoursSection } from "@/components/ChefStoryAndHoursSection";
-import { TrustAndReviewsSection } from "@/components/TrustAndReviewsSection";
-import { Footer } from "@/components/Footer";
-
-// Lazy-loaded subpages for blazing fast mobile initial load
+// Lazy-loaded components and subpages for blazing fast mobile initial load
+const ChefStoryAndHoursSection = lazy(() => import("@/components/ChefStoryAndHoursSection"));
+const TrustAndReviewsSection = lazy(() => import("@/components/TrustAndReviewsSection"));
+const Footer = lazy(() => import("@/components/Footer"));
 const RiceAndSoupPlatesSection = lazy(() => import("@/components/RiceAndSoupPlatesSection"));
 const LiterBowlConfigurator = lazy(() => import("@/components/LiterBowlConfigurator"));
 const ChopsAndSurpriseBuilder = lazy(() => import("@/components/ChopsAndSurpriseBuilder"));
@@ -785,10 +784,14 @@ Please confirm kitchen availability and provide your account transfer details!`;
           </section>
 
           {/* Section 9A: Chef Sonia Editorial Story & Pre-Order Hours */}
-          <ChefStoryAndHoursSection onBookEventClick={() => navigateTo("private-chef")} />
+          <Suspense fallback={null}>
+            <ChefStoryAndHoursSection onBookEventClick={() => navigateTo("private-chef")} />
+          </Suspense>
 
           {/* Section 9C: CAC Legitimacy Badge & SOZfeedbacks Guest Love Wall */}
-          <TrustAndReviewsSection />
+          <Suspense fallback={null}>
+            <TrustAndReviewsSection />
+          </Suspense>
         </main>
       )}
 
@@ -873,7 +876,9 @@ Please confirm kitchen availability and provide your account transfer details!`;
       )}
 
       {/* Global Luxury Footer */}
-      <Footer onNavigate={navigateTo} />
+      <Suspense fallback={null}>
+        <Footer onNavigate={navigateTo} />
+      </Suspense>
 
       {/* =========================================================================
           MOBILE STICKY BOTTOM CHECKOUT BAR (Visible on < md when cart.length > 0)
