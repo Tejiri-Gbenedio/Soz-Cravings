@@ -570,16 +570,34 @@ Please confirm kitchen availability and provide your account transfer details!`;
           ========================================================================= */}
       {currentPage === "home" && (
         <main>
-          {/* Hero Section */}
+          {/* Hero Section with Ambient Food Motion Video */}
           <section
             id="home"
             className="relative min-h-[92vh] flex items-center justify-center overflow-hidden border-b border-[#D4AF37]/15 py-12 lg:py-20"
           >
-            <div className="absolute inset-0 bg-[#0B070E]">
-              <div className="absolute inset-0 bg-gradient-to-b from-[#160E1D]/70 via-[#0B070E]/90 to-[#0B070E]" />
-              <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-[#6B21A8]/15 rounded-full blur-[140px] pointer-events-none" />
-              <div className="absolute bottom-10 right-10 w-[600px] h-[600px] bg-[#E86F2C]/10 rounded-full blur-[160px] pointer-events-none" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#D4AF37]/8 rounded-full blur-[180px] pointer-events-none" />
+            {/* Background Video Layer */}
+            <div className="absolute inset-0 z-0 overflow-hidden bg-[#0B070E]">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/images/hero-poster.webp"
+                className="absolute inset-0 w-full h-full object-cover object-center scale-[1.02] filter brightness-[0.72] contrast-[1.08] transition-opacity duration-1000"
+              >
+                <source src="/videos/hero.mp4" type="video/mp4" />
+                <source src="/videos/Chef_plating_Nigerian_jollof_rice_1080p_20261027100106.mp4" type="video/mp4" />
+              </video>
+
+              {/* Multi-stop Scrim & Vignette Overlays for maximum text contrast & royal ambiance */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0B070E]/95 via-[#0B070E]/80 to-[#0B070E]/65" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B070E] via-transparent to-[#0B070E]/80" />
+              <div className="absolute inset-0 bg-[#6B21A8]/10 mix-blend-screen pointer-events-none" />
+
+              {/* Ambient Glows */}
+              <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-[#6B21A8]/20 rounded-full blur-[140px] pointer-events-none" />
+              <div className="absolute bottom-10 right-10 w-[600px] h-[600px] bg-[#E86F2C]/15 rounded-full blur-[160px] pointer-events-none" />
             </div>
 
             {/* Faint 1px Gold Orbital SVG Rings */}
