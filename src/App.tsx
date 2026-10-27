@@ -575,7 +575,7 @@ Please confirm kitchen availability and provide your account transfer details!`;
             id="home"
             className="relative min-h-[92vh] flex items-center justify-center overflow-hidden border-b border-[#D4AF37]/15 py-12 lg:py-20"
           >
-            {/* Background Video Layer */}
+            {/* Background Video Layer - High Visibility & Natural Warmth */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-[#0B070E]">
               <video
                 autoPlay
@@ -584,62 +584,15 @@ Please confirm kitchen availability and provide your account transfer details!`;
                 playsInline
                 preload="auto"
                 poster="/images/hero-poster.webp"
-                className="absolute inset-0 w-full h-full object-cover object-center scale-[1.02] filter brightness-[0.72] contrast-[1.08] transition-opacity duration-1000"
+                className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.04] transition-opacity duration-1000"
               >
                 <source src="/videos/hero.mp4" type="video/mp4" />
                 <source src="/videos/Chef_plating_Nigerian_jollof_rice_1080p_20261027100106.mp4" type="video/mp4" />
               </video>
 
-              {/* Multi-stop Scrim & Vignette Overlays for maximum text contrast & royal ambiance */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0B070E]/95 via-[#0B070E]/80 to-[#0B070E]/65" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B070E] via-transparent to-[#0B070E]/80" />
-              <div className="absolute inset-0 bg-[#6B21A8]/10 mix-blend-screen pointer-events-none" />
-
-              {/* Ambient Glows */}
-              <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-[#6B21A8]/20 rounded-full blur-[140px] pointer-events-none" />
-              <div className="absolute bottom-10 right-10 w-[600px] h-[600px] bg-[#E86F2C]/15 rounded-full blur-[160px] pointer-events-none" />
-            </div>
-
-            {/* Faint 1px Gold Orbital SVG Rings */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-              <svg
-                className="w-[1400px] h-[1400px] sm:w-[1700px] sm:h-[1700px] opacity-75"
-                viewBox="0 0 1000 1000"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="500" cy="500" r="220" stroke="rgba(212, 175, 55, 0.16)" strokeWidth="1" />
-                <circle
-                  cx="500"
-                  cy="500"
-                  r="340"
-                  stroke="rgba(212, 175, 55, 0.14)"
-                  strokeWidth="1"
-                  strokeDasharray="4 8"
-                />
-                <circle cx="500" cy="500" r="460" stroke="rgba(212, 175, 55, 0.12)" strokeWidth="1" />
-                <circle
-                  cx="500"
-                  cy="500"
-                  r="580"
-                  stroke="rgba(212, 175, 55, 0.08)"
-                  strokeWidth="1"
-                  strokeDasharray="8 12"
-                />
-                <ellipse
-                  cx="500"
-                  cy="500"
-                  rx="490"
-                  ry="240"
-                  transform="rotate(-26 500 500)"
-                  stroke="rgba(232, 111, 44, 0.18)"
-                  strokeWidth="1.25"
-                />
-                <circle cx="280" cy="500" r="3" fill="#D4AF37" opacity="0.6" />
-                <circle cx="500" cy="160" r="2.5" fill="#E86F2C" opacity="0.7" />
-                <circle cx="840" cy="500" r="4" fill="#F3C663" opacity="0.5" />
-                <circle cx="360" cy="270" r="2" fill="#FAF6F0" opacity="0.4" />
-              </svg>
+              {/* Natural Cinematic Scrim: Soft fade on the left for typography, transparent across the plate & action */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0B070E]/85 via-[#0B070E]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0B070E]/50 via-transparent to-[#0B070E]" />
             </div>
 
             {/* Hero Content Container */}
@@ -648,19 +601,19 @@ Please confirm kitchen availability and provide your account transfer details!`;
                 {/* POINT 1: Middle-Left Massive Display Title */}
                 <div className="lg:col-span-7 flex flex-col space-y-6">
                   <div className="space-y-1">
-                    <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] tracking-tight leading-[0.88] text-[#FAF6F0] uppercase">
+                    <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] tracking-tight leading-[0.88] text-[#FAF6F0] uppercase drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
                       SO'Z
                     </h1>
-                    <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] tracking-tight leading-[0.88] text-transparent bg-clip-text bg-gradient-to-r from-[#FAF6F0] via-[#E8D8C8] to-[#D4AF37] uppercase">
+                    <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] tracking-tight leading-[0.88] text-transparent bg-clip-text bg-gradient-to-r from-[#FAF6F0] via-[#E8D8C8] to-[#D4AF37] uppercase drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
                       CRAVINGS
                     </h1>
                   </div>
 
                   <div className="pt-1 pb-1">
-                    <p className="font-mono text-sm sm:text-base font-bold tracking-[0.2em] text-[#E86F2C] uppercase">
+                    <p className="font-mono text-sm sm:text-base font-bold tracking-[0.2em] text-[#E86F2C] uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                       {SOZ_BRAND_IDENTITY.primaryTagline}
                     </p>
-                    <p className="font-script text-2xl sm:text-3xl text-[#D4AF37] italic mt-1">
+                    <p className="font-script text-2xl sm:text-3xl text-[#D4AF37] italic mt-1 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
                       "Crave It. We Deliver. • Small Chops, Big Vibes! • Fries. Flavor. Satisfaction."
                     </p>
                   </div>
